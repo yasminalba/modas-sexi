@@ -1,0 +1,1021 @@
+:root {
+    --black: #000000;
+    --gold: #fdbb5b;
+    --gold-soft: #e8c98a;
+    --gold-dark: #a87a0f;
+    --text: #f5ead7;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5efe7;
+}
+
+/* Cabeçalho com reflexos dourados */
+
+.header {
+    position: relative;
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            ellipse at 10% 25%,
+            rgba(253, 187, 91, 0.09) 0%,
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 90% 65%,
+            rgba(168, 122, 15, 0.10) 0%,
+            transparent 38%
+        ),
+        #000000;
+
+    background-size: 140% 140%, 140% 140%, auto;
+    animation: reflexoFundo 12s ease-in-out infinite alternate;
+
+    color: var(--text);
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Movimento suave dos reflexos */
+
+@keyframes reflexoFundo {
+    0% {
+        background-position: 0% 0%, 100% 100%, center;
+    }
+
+    100% {
+        background-position: 100% 50%, 0% 50%, center;
+    }
+}
+
+/* Barra superior */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 26px;
+    padding: 4px 12px;
+
+    background: rgba(18, 13, 5, 0.85);
+    border-bottom: 1px solid rgba(253, 187, 91, 0.25);
+
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 0.03em;
+}
+
+.topbar svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* Área da logo */
+
+.brand {
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Menos espaço acima e abaixo da logo */
+    padding: 8px 16px 0;
+
+    overflow: hidden;
+}
+
+/* Luz dourada atrás da logo */
+
+.brand::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(253, 187, 91, 0.17) 0%,
+        rgba(168, 122, 15, 0.09) 35%,
+        transparent 70%
+    );
+
+    filter: blur(18px);
+    animation: brilhoDourado 5s ease-in-out infinite;
+}
+
+/* Animação da iluminação dourada */
+
+@keyframes brilhoDourado {
+    0%, 100% {
+        opacity: 0.55;
+        transform: scale(0.92);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+/* Logo centralizada */
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 0;
+}
+
+.logo img {
+    display: block;
+
+    width: 400px;
+    height: 400px;
+    max-width: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    filter: drop-shadow(
+        0 0 8px rgba(253, 187, 91, 0.10)
+    );
+
+    animation: entradaLogo 1.2s ease-out both;
+}
+
+/* Entrada suave da logo */
+
+@keyframes entradaLogo {
+    from {
+        opacity: 0;
+        transform: scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Menu de navegação */
+
+.nav {
+    /* Aproxima o menu da logo */
+    padding: 0 16px 10px;
+    margin-top: -2px;
+}
+
+.nav ul {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 5px 24px;
+}
+
+.nav a {
+    display: block;
+    padding: 5px 0;
+
+    color: var(--text);
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+
+    transition: color 0.25s ease;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: var(--gold);
+}
+
+.nav a:focus-visible {
+    outline: 1px solid var(--gold);
+    outline-offset: 4px;
+}
+
+/* Ajustes para celulares */
+
+@media (max-width: 600px) {
+    .brand {
+        padding: 8px 12px 0;
+    }
+
+    .brand::before {
+        width: 280px;
+        height: 280px;
+    }
+
+    .logo img {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+
+/* =====================================
+   SEÇÃO DE NOVIDADES - MODAS SEXI
+===================================== */
+
+.novidades {
+    width: 88%;
+    max-width: 1400px;
+    margin: 45px auto;
+    color: #111;
+}
+
+.novidades-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 15px;
+    padding-bottom: 18px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #dedbd5;
+}
+
+.novidades-header .subtitulo {
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.novidades-header h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 34px;
+    font-weight: 400;
+    color: #111;
+}
+
+.ver-tudo {
+    color: #111;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 3px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--gold);
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.ver-tudo:hover {
+    color: var(--gold-dark);
+}
+
+/* GRADE DOS PRODUTOS */
+
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.produto {
+    min-width: 0;
+}
+
+.produto-imagem {
+    display: block;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: #f3f0e8;
+}
+
+.produto-imagem img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.produto-imagem:hover img {
+    transform: scale(1.03);
+}
+
+/* ETIQUETAS DOS PRODUTOS */
+
+.etiqueta {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    padding: 7px 10px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.lancamento {
+    background: #000;
+    color: #fff;
+}
+
+/* PRODUTO INDISPONÍVEL */
+
+.indisponivel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.94);
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #111;
+}
+
+/* NOMES E PREÇOS */
+
+.produto h3 {
+    margin: 10px 0 5px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #111;
+}
+
+.preco {
+    font-size: 20px;
+    font-weight: 500;
+    color: #111;
+}
+
+/* Sublinhado ao passar o mouse sobre os nomes dos produtos */
+
+.produto h3 {
+    cursor: pointer;
+    transition: text-decoration 0.3s ease;
+}
+
+.produto h3:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+    .novidades {
+        width: 92%;
+    }
+
+    .produtos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 18px;
+    }
+}
+
+/* CELULARES */
+
+@media (max-width: 480px) {
+    .novidades {
+        width: 94%;
+        margin: 30px auto;
+    }
+
+    .novidades-header {
+        margin-bottom: 22px;
+    }
+
+    .novidades-header h2 {
+        font-size: 28px;
+    }
+
+    .novidades-header .subtitulo {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .ver-tudo {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .produtos {
+        gap: 22px 12px;
+    }
+
+    .produto h3 {
+        font-size: 12px;
+    }
+
+    .preco {
+        font-size: 13px;
+    }
+
+    .preco-antigo {
+        display: block;
+        margin: 4px 0 0;
+    }
+
+    .etiqueta {
+        padding: 6px;
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+}
+
+/* =====================================
+   COLEÇÃO DE NATAL - MODAS SEXI
+===================================== */
+
+.colecao-natal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Banner à esquerda */
+
+.natal-banner {
+    min-width: 0;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.natal-banner img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Conteúdo à direita */
+
+.natal-conteudo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    padding: 55px 6% 45px;
+    background: #242320;
+}
+
+.natal-titulo {
+    margin-bottom: 40px;
+}
+
+.natal-subtitulo {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+.natal-titulo h2 {
+    color: #fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 4vw, 58px);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.natal-descricao {
+    color: #e2e2e2;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Grade dos produtos */
+
+.natal-produtos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+}
+
+.natal-produto {
+    min-width: 0;
+}
+
+.natal-produto-imagem {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: #f5efe7;
+}
+
+.natal-produto-imagem img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.natal-produto-imagem:hover img {
+    transform: scale(1.04);
+}
+
+/* Nomes dos produtos */
+
+.natal-produto h3 {
+    margin-top: 10px;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.natal-produto h3 a {
+    color: #fff;
+    text-decoration: none;
+    text-underline-offset: 4px;
+    transition: color 0.3s ease;
+}
+
+.natal-produto h3 a:hover {
+    color: var(--gold);
+    text-decoration: underline;
+}
+
+/* Link da coleção */
+
+.natal-link {
+    align-self: flex-start;
+    margin-top: 40px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--gold-dark);
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.natal-link:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+/* Tablets */
+
+@media (max-width: 1000px) {
+    .colecao-natal {
+        grid-template-columns: 1fr;
+    }
+
+    .natal-banner {
+        min-height: 0;
+        height: 480px;
+    }
+
+    .natal-banner img {
+        min-height: 0;
+        height: 100%;
+        object-position: center 35%;
+    }
+
+    .natal-conteudo {
+        padding: 40px 5%;
+    }
+
+    .natal-titulo h2 {
+        font-size: 48px;
+    }
+
+    .natal-produtos {
+        gap: 18px;
+    }
+
+    .natal-produto h3 {
+        font-size: 13px;
+    }
+}
+
+/* Celulares */
+
+@media (max-width: 480px) {
+    .natal-banner {
+        height: 360px;
+    }
+
+    .natal-conteudo {
+        padding: 32px 16px;
+    }
+
+    .natal-titulo {
+        margin-bottom: 25px;
+    }
+
+    .natal-titulo h2 {
+        font-size: 42px;
+    }
+
+    .natal-descricao {
+        font-size: 13px;
+    }
+
+    .natal-produtos {
+        gap: 10px;
+    }
+
+    .natal-produto h3 {
+        font-size: 10px;
+    }
+
+    .natal-link {
+        margin-top: 30px;
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+}
+
+
+/* =====================================
+   PRODUTOS EM DESTAQUE
+===================================== */
+
+.destaques {
+    width: 88%;
+    max-width: 1400px;
+    margin: 65px auto;
+    color: #111;
+}
+
+/* Cabeçalho da seção */
+
+.destaques-header {
+    padding-bottom: 17px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #dedbd5;
+}
+
+.destaques-subtitulo {
+    margin-bottom: 10px;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #555;
+}
+
+.destaques-header h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 34px;
+    font-weight: 400;
+    color: #111;
+}
+
+/* Grade com quatro produtos */
+
+.destaques-produtos {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* Aproveita os estilos gerais de .produto
+   e .produto-imagem já existentes */
+
+.destaques .produto h3 {
+    margin: 10px 0 5px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.destaques .produto h3 a {
+    color: #111;
+    text-decoration: none;
+    text-underline-offset: 4px;
+}
+
+.destaques .produto h3 a:hover {
+    text-decoration: underline;
+}
+
+/* Etiqueta de promoção */
+
+.destaques .promocao {
+    background: #d9ad4d;
+    color: #000;
+}
+
+/* Preço antigo */
+
+.destaques .preco-antigo {
+    margin-left: 5px;
+    font-size: 11px;
+    font-weight: 400;
+    color: #888;
+    text-decoration: line-through;
+}
+
+/* Tablets */
+
+@media (max-width: 900px) {
+    .destaques {
+        width: 92%;
+    }
+
+    .destaques-produtos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 18px;
+    }
+}
+
+/* Celulares */
+
+@media (max-width: 480px) {
+    .destaques {
+        width: 94%;
+        margin: 40px auto;
+    }
+
+    .destaques-header {
+        margin-bottom: 22px;
+    }
+
+    .destaques-header h2 {
+        font-size: 28px;
+    }
+
+    .destaques-subtitulo {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .destaques-produtos {
+        gap: 22px 12px;
+    }
+
+    .destaques .produto h3 {
+        font-size: 12px;
+    }
+
+    .destaques .preco {
+        font-size: 13px;
+    }
+
+    .destaques .preco-antigo {
+        display: block;
+        margin: 4px 0 0;
+    }
+
+    .destaques .etiqueta {
+        padding: 6px;
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+}
+
+
+/* =====================================
+   RODAPÉ - MODAS SEXI
+===================================== */
+
+.rodape {
+    display: grid;
+    grid-template-columns: 1.25fr 0.8fr 1fr 1.35fr;
+    align-items: start;
+    justify-items: center;
+    gap: 30px;
+
+    width: 100%;
+    padding: 50px 5% 45px;
+
+    background: #000;
+    color: #f5ead7;
+    text-align: left;
+}
+
+/* MARCA E LOGO */
+
+.rodape-marca {
+    width: 100%;
+    max-width: 320px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rodape-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+}
+
+.rodape-logo img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.rodape-marca p {
+    max-width: 280px;
+    color: #d6d0c8;
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: left;
+}
+
+/* COLUNAS */
+
+.rodape-coluna {
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 16px;
+    text-align: left;
+}
+
+.rodape-coluna h3 {
+    margin-bottom: 10px;
+    color: #a87a0f;
+    font-size: 12px;
+    font-weight: 500px;
+    letter-spacing: 2px;
+}
+
+/* LINKS */
+
+.rodape-coluna > a {
+    color: #d6d0c8;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.rodape-coluna > a:hover {
+    color: var(--gold);
+}
+
+/* CONTATOS COM ÍCONES AO LADO */
+
+.rodape-coluna .rodape-contato {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: 9px;
+
+    min-height: 24px;
+    color: #d6d0c8;
+    font-size: 14px;
+    text-align: left;
+}
+
+.rodape-contato svg {
+    display: block;
+    flex-shrink: 0;
+
+    width: 19px;
+    height: 19px;
+
+    color: var(--gold);
+    transition: transform 0.3s ease;
+}
+
+.rodape-contato:hover svg {
+    transform: translateY(-2px);
+}
+
+/* ENDEREÇO */
+
+.rodape-localizacao {
+    align-items: flex-start !important;
+    text-align: left;
+}
+
+.rodape-localizacao svg {
+    margin-top: 2px;
+}
+
+.rodape-endereco-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.rodape-endereco-texto p {
+    margin: 0;
+    color: #d6d0c8;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.rodape-endereco-texto strong {
+    color: #f5ead7;
+    font-weight: 500;
+}
+
+/* TABLETS */
+
+@media (max-width: 1000px) {
+    .rodape {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 40px 25px;
+        padding: 40px 5%;
+    }
+
+    .rodape-marca {
+        grid-column: 1 / -1;
+        max-width: 100%;
+    }
+
+    .rodape-logo img {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+/* CELULARES */
+
+@media (max-width: 480px) {
+    .rodape {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px 14px;
+        padding: 35px 5%;
+    }
+
+    .rodape-marca {
+        grid-column: 1 / -1;
+    }
+
+    .rodape-logo {
+        margin-bottom: 15px;
+    }
+
+    .rodape-logo img {
+        width: 125px;
+        height: 125px;
+    }
+
+    .rodape-marca p {
+        font-size: 11px;
+    }
+
+    .rodape-coluna {
+        gap: 12px;
+    }
+
+    .rodape-coluna h3 {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .rodape-coluna > a {
+        font-size: 11px;
+    }
+
+    .rodape-coluna .rodape-contato {
+        gap: 6px;
+        font-size: 10px;
+    }
+
+    .rodape-contato svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .rodape-endereco-texto {
+        gap: 7px;
+    }
+
+    .rodape-endereco-texto p {
+        font-size: 10px;
+        overflow-wrap: anywhere;
+    }
+}

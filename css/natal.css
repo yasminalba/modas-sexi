@@ -1,0 +1,771 @@
+:root {
+    --black: #000000;
+    --gold: #fdbb5b;
+    --gold-soft: #e8c98a;
+    --gold-dark: #a87a0f;
+    --text: #f5ead7;
+}
+
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5efe7;
+    color: #111111;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.header {
+    position: relative;
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            ellipse at 10% 25%,
+            rgba(253, 187, 91, 0.09) 0%,
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 90% 65%,
+            rgba(168, 122, 15, 0.10) 0%,
+            transparent 38%
+        ),
+        #000000;
+
+    background-size: 140% 140%, 140% 140%, auto;
+    animation: reflexoFundo 12s ease-in-out infinite alternate;
+
+    color: var(--text);
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+@keyframes reflexoFundo {
+    0% {
+        background-position: 0% 0%, 100% 100%, center;
+    }
+
+    100% {
+        background-position: 100% 50%, 0% 50%, center;
+    }
+}
+
+/* Barra superior */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    min-height: 26px;
+    padding: 4px 12px;
+
+    background: rgba(18, 13, 5, 0.85);
+    border-bottom: 1px solid rgba(253, 187, 91, 0.25);
+
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 0.03em;
+}
+
+.topbar svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* Área da logo */
+
+.brand {
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 8px 16px 0;
+    overflow: hidden;
+}
+
+.brand::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(253, 187, 91, 0.17) 0%,
+        rgba(168, 122, 15, 0.09) 35%,
+        transparent 70%
+    );
+
+    filter: blur(18px);
+    animation: brilhoDourado 5s ease-in-out infinite;
+}
+
+@keyframes brilhoDourado {
+    0%, 100% {
+        opacity: 0.55;
+        transform: scale(0.92);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+/* Logo */
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 0;
+}
+
+.logo img {
+    display: block;
+
+    width: 400px;
+    height: 400px;
+    max-width: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    filter: drop-shadow(
+        0 0 8px rgba(253, 187, 91, 0.10)
+    );
+
+    animation: entradaLogo 1.2s ease-out both;
+}
+
+@keyframes entradaLogo {
+    from {
+        opacity: 0;
+        transform: scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Menu de navegação */
+
+.nav {
+    padding: 0 16px 10px;
+    margin-top: -2px;
+}
+
+.nav ul {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 5px 24px;
+}
+
+.nav a {
+    display: block;
+    padding: 5px 0;
+
+    color: var(--text);
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+
+    transition: color 0.25s ease;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: var(--gold);
+}
+
+.nav a:focus-visible {
+    outline: 1px solid var(--gold);
+    outline-offset: 4px;
+}
+/* =========================
+   PÁGINA NATAL
+========================= */
+
+.pagina-natal {
+    width: 100%;
+    max-width: 1408px;
+
+    margin: 0 auto;
+    padding: 35px 28px 60px;
+
+    background: #f5efe7
+}
+
+/* Caminho da página */
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 25px;
+
+    color: #666666;
+    font-size: 11px;
+}
+
+.breadcrumb a {
+    color: #666666;
+}
+
+.breadcrumb a:hover {
+    color: var(--gold-dark);
+}
+
+/* Título e descrição */
+
+.introducao {
+    padding-bottom: 26px;
+    margin-bottom: 40px;
+
+    border-bottom: 1px solid #ecce9d;
+}
+
+.introducao h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(38px, 4vw, 56px);
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -1px;
+
+    margin-bottom: 13px;
+}
+
+.introducao > p {
+    color: #505050;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.quantidade {
+    display: block;
+
+    color: #555555;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+/* GRADE DOS PRODUTOS */
+
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.produto {
+    min-width: 0;
+}
+
+.produto-imagem {
+    display: block;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: #f3f0e8;
+}
+
+.produto-imagem img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.produto-imagem:hover img {
+    transform: scale(1.03);
+}
+
+/* Etiquetas */
+
+.etiqueta {
+    position: absolute;
+    left: 0;
+    top: 12px;
+    z-index: 1;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 23px;
+    padding: 0 10px;
+
+    font-size: 9px;
+    letter-spacing: 1.8px;
+    white-space: nowrap;
+}
+
+.lancamento {
+    background: #050505;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Produto indisponível */
+
+.indisponivel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    padding: 9px 5px;
+
+    background: rgba(255, 255, 255, 0.96);
+    color: #111111;
+
+    text-align: center;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+}
+
+/* Nome e preço */
+
+.produto-info {
+    padding-top: 12px;
+}
+
+.produto-info h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+
+    margin-bottom: 5px;
+}
+
+.preco {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* =========================
+   TABLETS
+========================= */
+
+@media (max-width: 1000px) {
+    .pagina-lancamentos {
+        padding: 30px 24px 45px;
+    }
+
+    .produtos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 22px;
+    }
+
+    .nav ul {
+        gap: 5px 20px;
+    }
+
+    .logo img {
+        width: 320px;
+        height: 320px;
+    }
+}
+
+/* =========================
+   CELULARES
+========================= */
+
+@media (max-width: 600px) {
+    .brand {
+        padding: 8px 12px 0;
+    }
+
+    .brand::before {
+        width: 280px;
+        height: 280px;
+    }
+
+    .logo img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .nav {
+        padding: 0 12px 10px;
+    }
+
+    .nav ul {
+        gap: 5px 16px;
+    }
+
+    .nav a {
+        font-size: 9px;
+        letter-spacing: 0.7px;
+    }
+
+    .pagina-lancamentos {
+        padding: 25px 15px 35px;
+    }
+
+    .breadcrumb {
+        margin-bottom: 22px;
+    }
+
+    .introducao {
+        padding-bottom: 22px;
+        margin-bottom: 25px;
+    }
+
+    .introducao h1 {
+        font-size: 38px;
+    }
+
+    .introducao > p {
+        font-size: 13px;
+    }
+
+    .produtos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 12px;
+    }
+
+    .produto-info {
+        padding-top: 9px;
+    }
+
+    .produto-info h2 {
+        font-size: 12px;
+        line-height: 1.45;
+    }
+
+    .preco {
+        gap: 5px;
+        font-size: 13px;
+    }
+
+    .preco del {
+        font-size: 10px;
+    }
+
+    .etiqueta {
+        top: 8px;
+        min-height: 20px;
+        padding: 0 6px;
+
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    .promocao {
+        top: 8px;
+    }
+
+    .etiqueta-secundaria {
+        top: 32px;
+    }
+
+    .indisponivel {
+        padding: 7px 3px;
+        font-size: 7px;
+        letter-spacing: 1.5px;
+    }
+}
+
+/* Telas muito pequenas */
+
+@media (max-width: 360px) {
+    .nav ul {
+        gap: 5px 12px;
+    }
+
+    .nav a {
+        font-size: 8px;
+    }
+
+    .produto-info h2 {
+        font-size: 11px;
+    }
+
+    .preco {
+        font-size: 12px;
+    }
+}
+
+/* Acessibilidade: reduzir animações */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* =====================================
+   RODAPÉ - MODAS SEXI
+===================================== */
+
+.rodape {
+    display: grid;
+    grid-template-columns: 1.25fr 0.8fr 1fr 1.35fr;
+    align-items: start;
+    justify-items: center;
+    gap: 30px;
+
+    width: 100%;
+    padding: 50px 5% 45px;
+
+    background: #000;
+    color: #f5ead7;
+    text-align: left;
+}
+
+/* MARCA E LOGO */
+
+.rodape-marca {
+    width: 100%;
+    max-width: 320px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rodape-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+}
+
+.rodape-logo img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.rodape-marca p {
+    max-width: 280px;
+    color: #d6d0c8;
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: left;
+}
+
+/* COLUNAS */
+
+.rodape-coluna {
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 16px;
+    text-align: left;
+}
+
+.rodape-coluna h3 {
+    margin-bottom: 10px;
+    color: #a87a0f;
+    font-size: 12px;
+    font-weight: 500px;
+    letter-spacing: 2px;
+}
+
+/* LINKS */
+
+.rodape-coluna > a {
+    color: #d6d0c8;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.rodape-coluna > a:hover {
+    color: var(--gold);
+}
+
+/* CONTATOS COM ÍCONES AO LADO */
+
+.rodape-coluna .rodape-contato {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: 9px;
+
+    min-height: 24px;
+    color: #d6d0c8;
+    font-size: 14px;
+    text-align: left;
+}
+
+.rodape-contato svg {
+    display: block;
+    flex-shrink: 0;
+
+    width: 19px;
+    height: 19px;
+
+    color: var(--gold);
+    transition: transform 0.3s ease;
+}
+
+.rodape-contato:hover svg {
+    transform: translateY(-2px);
+}
+
+/* ENDEREÇO */
+
+.rodape-localizacao {
+    align-items: flex-start !important;
+    text-align: left;
+}
+
+.rodape-localizacao svg {
+    margin-top: 2px;
+}
+
+.rodape-endereco-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.rodape-endereco-texto p {
+    margin: 0;
+    color: #d6d0c8;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.rodape-endereco-texto strong {
+    color: #f5ead7;
+    font-weight: 500;
+}
+
+/* TABLETS */
+
+@media (max-width: 1000px) {
+    .rodape {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 40px 25px;
+        padding: 40px 5%;
+    }
+
+    .rodape-marca {
+        grid-column: 1 / -1;
+        max-width: 100%;
+    }
+
+    .rodape-logo img {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+/* CELULARES */
+
+@media (max-width: 480px) {
+    .rodape {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px 14px;
+        padding: 35px 5%;
+    }
+
+    .rodape-marca {
+        grid-column: 1 / -1;
+    }
+
+    .rodape-logo {
+        margin-bottom: 15px;
+    }
+
+    .rodape-logo img {
+        width: 125px;
+        height: 125px;
+    }
+
+    .rodape-marca p {
+        font-size: 11px;
+    }
+
+    .rodape-coluna {
+        gap: 12px;
+    }
+
+    .rodape-coluna h3 {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .rodape-coluna > a {
+        font-size: 11px;
+    }
+
+    .rodape-coluna .rodape-contato {
+        gap: 6px;
+        font-size: 10px;
+    }
+
+    .rodape-contato svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .rodape-endereco-texto {
+        gap: 7px;
+    }
+
+    .rodape-endereco-texto p {
+        font-size: 10px;
+        overflow-wrap: anywhere;
+    }
+}

@@ -1,0 +1,760 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --preto: #050505;
+    --dourado: #d8ad4b;
+    --fundo: #ffffff;
+    --texto: #171717;
+    --cinza: #777777;
+    --borda: #e7e2dc;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--texto);
+    background: var(--fundo);
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font: inherit;
+}
+
+/* CABEÇALHO */
+
+.cabecalho {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px max(32px, calc((100% - 1400px) / 2));
+    background: var(--preto);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logo {
+    flex-shrink: 0;
+}
+
+.logo img {
+    display: block;
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+
+.menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    transition: color 0.25s;
+}
+
+.menu a:hover,
+.menu a:last-child {
+    color: var(--dourado);
+}
+
+/* ÁREA PRINCIPAL COM MARGENS */
+
+.pagina-produto {
+    width: 100%;
+    max-width: 1464px;
+    margin: 0 auto;
+    padding: 26px 32px 60px;
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 26px;
+    color: #666666;
+    font-size: 12px;
+}
+
+.breadcrumb a {
+    color: #666666;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: var(--dourado);
+}
+
+.produto-detalhes {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.96fr);
+    gap: 56px;
+    align-items: start;
+}
+
+/* GALERIA */
+
+.galeria {
+    display: grid;
+    grid-template-columns: 78px minmax(0, 1fr);
+    gap: 14px;
+    min-width: 0;
+}
+
+.miniaturas {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.miniatura {
+    width: 78px;
+    height: 110px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid transparent;
+    background: #f4f0e8;
+    cursor: pointer;
+}
+
+.miniatura.ativa {
+    border: 2px solid var(--preto);
+}
+
+.miniatura img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.imagem-principal {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    background: #f4f0e8;
+}
+
+.imagem-principal > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 0.72;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.seta {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 42px;
+    border: none;
+    background: rgba(255, 255, 255, 0.94);
+    color: #111111;
+    font-size: 22px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.seta:hover {
+    background: var(--dourado);
+}
+
+.anterior {
+    left: 10px;
+}
+
+.proxima {
+    right: 10px;
+}
+
+.contador {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 6px 10px;
+    font-size: 12px;
+}
+
+/* INFORMAÇÕES DO PRODUTO */
+
+.informacoes {
+    padding: 2px 0;
+    min-width: 0;
+}
+
+.subtitulo {
+    margin-bottom: 8px;
+    color: var(--cinza);
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.informacoes h1 {
+    margin-bottom: 20px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(30px, 3.2vw, 45px);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.preco {
+    margin-bottom: 16px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.disponibilidade {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+    color: var(--cinza);
+    font-size: 13px;
+}
+
+.ponto-disponibilidade {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #77986c;
+}
+
+.grupo-opcoes {
+    margin-bottom: 28px;
+}
+
+.titulo-opcao {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    align-items: center;
+    margin-bottom: 13px;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.titulo-opcao span + span {
+    color: #666666;
+    letter-spacing: 0;
+    font-size: 12px;
+}
+
+/* CORES */
+
+.opcoes-cores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.cor-opcao {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 12px;
+    border: 1px solid var(--borda);
+    background: #ffffff;
+    color: #222222;
+    font-size: 12px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.cor-opcao:hover {
+    border-color: #999999;
+}
+
+.cor-opcao.selecionada {
+    background: var(--preto);
+    color: #ffffff;
+    border-color: var(--preto);
+}
+
+.amostra {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.rosa {
+    background: #f3c6d2;
+}
+
+.vermelho {
+    background: #c5203a;
+}
+
+.preto {
+    background: #111111;
+}
+
+.marrom {
+    background: #684237;
+}
+
+.amarelo {
+    background: #f2df9d;
+}
+
+/* TAMANHOS */
+
+.opcoes-tamanhos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tamanho-opcao {
+    min-width: 49px;
+    height: 45px;
+    padding: 0 12px;
+    border: 1px solid #d8d3cd;
+    background: #ffffff;
+    color: #222222;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tamanho-opcao:hover {
+    border-color: #111111;
+}
+
+.tamanho-opcao.selecionado {
+    color: #ffffff;
+    background: var(--preto);
+    border-color: var(--preto);
+}
+
+.aviso {
+    margin-top: 10px;
+    color: #777777;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* BOTÃO WHATSAPP */
+
+.botao-whatsapp {
+    width: 100%;
+    min-height: 56px;
+    margin: 5px 0 0;
+    padding: 15px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: none;
+    background: var(--dourado);
+    color: #080808;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.25s;
+}
+
+.botao-whatsapp:hover {
+    background: #e5bf68;
+    transform: translateY(-1px);
+}
+
+.botao-whatsapp svg {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+}
+
+.aviso-whatsapp {
+    margin-top: 9px;
+    color: #777777;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* DESCRIÇÃO */
+
+.descricao {
+    margin-top: 38px;
+    padding-top: 27px;
+    border-top: 1px solid #ded9d2;
+}
+
+.descricao h2 {
+    margin-bottom: 13px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.descricao p {
+    color: #666666;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+    .cabecalho {
+        padding: 12px 22px;
+    }
+
+    .menu {
+        gap: 15px;
+    }
+
+    .menu a {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .pagina-produto {
+        padding: 24px 22px 45px;
+    }
+
+    .produto-detalhes {
+        gap: 28px;
+    }
+
+    .galeria {
+        grid-template-columns: 60px minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .miniatura {
+        width: 60px;
+        height: 88px;
+    }
+
+    .cor-opcao {
+        padding: 8px;
+    }
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+    .cabecalho {
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px 12px;
+    }
+
+    .logo img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .menu {
+        width: 100%;
+        gap: 12px 17px;
+    }
+
+    .menu a {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .pagina-produto {
+        padding: 20px 16px 40px;
+    }
+
+    .breadcrumb {
+        margin-bottom: 20px;
+        font-size: 11px;
+    }
+
+    .produto-detalhes {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .galeria {
+        grid-template-columns: 57px minmax(0, 1fr);
+        gap: 9px;
+    }
+
+    .miniatura {
+        width: 57px;
+        height: 80px;
+    }
+
+    .imagem-principal > img {
+        aspect-ratio: 0.72;
+    }
+
+    .informacoes h1 {
+        font-size: 34px;
+    }
+
+    .preco {
+        font-size: 22px;
+    }
+
+    .grupo-opcoes {
+        margin-bottom: 24px;
+    }
+
+    .cor-opcao {
+        min-height: 41px;
+        font-size: 11px;
+    }
+
+    .botao-whatsapp {
+        font-size: 11px;
+        letter-spacing: 1.3px;
+    }
+}
+
+/* =====================================
+   RODAPÉ - MODAS SEXI
+===================================== */
+
+.rodape {
+    display: grid;
+    grid-template-columns: 1.25fr 0.8fr 1fr 1.35fr;
+    align-items: start;
+    justify-items: center;
+    gap: 30px;
+
+    width: 100%;
+    padding: 50px 5% 45px;
+
+    background: #000;
+    color: #f5ead7;
+    text-align: left;
+}
+
+/* MARCA E LOGO */
+
+.rodape-marca {
+    width: 100%;
+    max-width: 320px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rodape-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+}
+
+.rodape-logo img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.rodape-marca p {
+    max-width: 280px;
+    color: #d6d0c8;
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: left;
+}
+
+/* COLUNAS */
+
+.rodape-coluna {
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 16px;
+    text-align: left;
+}
+
+.rodape-coluna h3 {
+    margin-bottom: 10px;
+    color: #a87a0f;
+    font-size: 12px;
+    font-weight: 500px;
+    letter-spacing: 2px;
+}
+
+/* LINKS */
+
+.rodape-coluna > a {
+    color: #d6d0c8;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.rodape-coluna > a:hover {
+    color: var(--gold);
+}
+
+/* CONTATOS COM ÍCONES AO LADO */
+
+.rodape-coluna .rodape-contato {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: 9px;
+
+    min-height: 24px;
+    color: #d6d0c8;
+    font-size: 14px;
+    text-align: left;
+}
+
+.rodape-contato svg {
+    display: block;
+    flex-shrink: 0;
+
+    width: 19px;
+    height: 19px;
+
+    color: var(--gold);
+    transition: transform 0.3s ease;
+}
+
+.rodape-contato:hover svg {
+    transform: translateY(-2px);
+}
+
+/* ENDEREÇO */
+
+.rodape-localizacao {
+    align-items: flex-start !important;
+    text-align: left;
+}
+
+.rodape-localizacao svg {
+    margin-top: 2px;
+}
+
+.rodape-endereco-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.rodape-endereco-texto p {
+    margin: 0;
+    color: #d6d0c8;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.rodape-endereco-texto strong {
+    color: #f5ead7;
+    font-weight: 500;
+}
+
+/* TABLETS */
+
+@media (max-width: 1000px) {
+    .rodape {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 40px 25px;
+        padding: 40px 5%;
+    }
+
+    .rodape-marca {
+        grid-column: 1 / -1;
+        max-width: 100%;
+    }
+
+    .rodape-logo img {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+/* CELULARES */
+
+@media (max-width: 480px) {
+    .rodape {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px 14px;
+        padding: 35px 5%;
+    }
+
+    .rodape-marca {
+        grid-column: 1 / -1;
+    }
+
+    .rodape-logo {
+        margin-bottom: 15px;
+    }
+
+    .rodape-logo img {
+        width: 125px;
+        height: 125px;
+    }
+
+    .rodape-marca p {
+        font-size: 11px;
+    }
+
+    .rodape-coluna {
+        gap: 12px;
+    }
+
+    .rodape-coluna h3 {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .rodape-coluna > a {
+        font-size: 11px;
+    }
+
+    .rodape-coluna .rodape-contato {
+        gap: 6px;
+        font-size: 10px;
+    }
+
+    .rodape-contato svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .rodape-endereco-texto {
+        gap: 7px;
+    }
+
+    .rodape-endereco-texto p {
+        font-size: 10px;
+        overflow-wrap: anywhere;
+    }
+}
